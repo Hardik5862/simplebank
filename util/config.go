@@ -9,9 +9,9 @@ type Config struct {
 	ServerAddress string `mapstructure:"SERVER_ADDRESS"`
 }
 
-func LoadConfig(path string) (config Config, err error) {
+func LoadConfig(path string, config_name string) (config Config, err error) {
 	viper.AddConfigPath(path)
-	viper.SetConfigName("app")
+	viper.SetConfigName(config_name)
 	viper.SetConfigType("env")
 
 	viper.AutomaticEnv()
