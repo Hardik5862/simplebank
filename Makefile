@@ -1,3 +1,5 @@
+DB_URL=postgresql://postgres:postgres@localhost:5432/simplebank?sslmode=disable
+
 createdb:
 	docker compose exec -it db createdb --username postgres --owner postgres simplebank
 
@@ -5,16 +7,16 @@ dropdb:
 	docker compose exec -it db dropdb --username postgres simplebank
 
 migrateup:
-	migrate -path db/migration -database "postgresql://postgres:postgres@localhost:5432/simplebank?sslmode=disable" -verbose up
+	migrate -path db/migration -database "$(DB_URL)" -verbose up
 
 migratedown:
-	migrate -path db/migration -database "postgresql://postgres:postgres@localhost:5432/simplebank?sslmode=disable" -verbose down
+	migrate -path db/migration -database "$(DB_URL)" -verbose down
 
 migrateuplatest:
-	migrate -path db/migration -database "postgresql://postgres:postgres@localhost:5432/simplebank?sslmode=disable" -verbose up 1
+	migrate -path db/migration -database "$(DB_URL)" -verbose up 1
 
 migratedownlatest:
-	migrate -path db/migration -database "postgresql://postgres:postgres@localhost:5432/simplebank?sslmode=disable" -verbose down 1
+	migrate -path db/migration -database "$(DB_URL)" -verbose down 1
 
 sqlc:
 	sqlc generate
