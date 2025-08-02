@@ -38,5 +38,6 @@ proto:
 	--grpc-gateway_out=pb --grpc-gateway_opt=paths=source_relative \
 	--openapiv2_out=./doc/swagger --openapiv2_opt=allow_merge=true \
 	proto/*.proto
+	statik -src=./doc/swagger -dest=./doc
 
 .PHONY: createdb dropdb migrateup migratedown migrateuplatest migratedownlatest sqlc test server mock proto
