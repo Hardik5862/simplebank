@@ -13,6 +13,7 @@ FROM alpine:3.22
 WORKDIR /app
 
 COPY --from=builder /app/main .
+COPY db/migration ./db/migration
 
 EXPOSE 8005
 
