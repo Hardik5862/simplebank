@@ -7,3 +7,8 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: postgres
+
+  redis:
+    image: valkey/valkey:8.1-alpine
+    ports:
+      - "6379:6379"
