@@ -18,6 +18,9 @@ migrateuplatest:
 migratedownlatest:
 	migrate -path db/migration -database "$(DB_URL)" -verbose down 1
 
+new_migration:
+	migrate create -ext sql -dir db/migration -seq $(name)
+
 sqlc:
 	sqlc generate
 
@@ -40,4 +43,4 @@ proto:
 	proto/*.proto
 	statik -src=./doc/swagger -dest=./doc
 
-.PHONY: createdb dropdb migrateup migratedown migrateuplatest migratedownlatest sqlc test server mock proto
+.PHONY: createdb dropdb migrateup migratedown migrateuplatest migratedownlatest new_migration sqlc test server mock proto
