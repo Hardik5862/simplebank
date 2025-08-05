@@ -17,6 +17,7 @@ require (
 	github.com/rs/zerolog v1.34.0
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.10.0
+	github.com/wneessen/go-mail v0.6.2
 	go.uber.org/mock v0.5.2
 	golang.org/x/crypto v0.40.0
 	google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822
