@@ -62,7 +62,7 @@ func (server *Server) UpdateUser(ctx context.Context, req *pb.UpdateUserRequest)
 	user, err := server.store.UpdateUser(ctx, arg)
 	if err != nil {
 		if errors.Is(err, db.ErrRecordNotFound) {
-			return nil, status.Errorf(codes.AlreadyExists, "username already exists: %s", err)
+			return nil, status.Errorf(codes.NotFound, "user not exists: %s", err)
 		}
 
 		return nil, status.Errorf(codes.Internal, "failed to create user: %s", err)
